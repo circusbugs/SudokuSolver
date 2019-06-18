@@ -1,0 +1,124 @@
+<html> 
+<script type='text/javascript' src='sudokusolver.js'>
+</script> 
+<table> 
+	<tr> 
+		<td> <input type="text" id='00'> </td>
+		<td> <input type="text" id='01'> </td>
+		<td> <input type="text" id='02'> </td>
+		<td> <input type="text" id='03'> </td>
+		<td> <input type="text" id='04'> </td>
+		<td> <input type="text" id='05'> </td>
+		<td> <input type="text" id='06'> </td>
+		<td> <input type="text" id='07'> </td>
+		<td> <input type="text" id='08'> </td>
+	</tr>
+		<tr> 
+		<td> <input type="text" id='10'> </td>
+		<td> <input type="text" id='11'> </td>
+		<td> <input type="text" id='12'> </td>
+		<td> <input type="text" id='13'> </td>
+		<td> <input type="text" id='14'> </td>
+		<td> <input type="text" id='15'> </td>
+		<td> <input type="text" id='16'> </td>
+		<td> <input type="text" id='17'> </td>
+		<td> <input type="text" id='18'> </td>
+	</tr>
+		<tr> 
+		<td> <input type="text" id='20'> </td>
+		<td> <input type="text" id='21'> </td>
+		<td> <input type="text" id='22'> </td>
+		<td> <input type="text" id='23'> </td>
+		<td> <input type="text" id='24'> </td>
+		<td> <input type="text" id='25'> </td>
+		<td> <input type="text" id='26'> </td>
+		<td> <input type="text" id='27'> </td>
+		<td> <input type="text" id='28'> </td>
+	</tr>
+		<tr> 
+		<td> <input type="text" id='30'> </td>
+		<td> <input type="text" id='31'> </td>
+		<td> <input type="text" id='32'> </td>
+		<td> <input type="text" id='33'> </td>
+		<td> <input type="text" id='34'> </td>
+		<td> <input type="text" id='35'> </td>
+		<td> <input type="text" id='36'> </td>
+		<td> <input type="text" id='37'> </td>
+		<td> <input type="text" id='38'> </td>
+	</tr>
+		<tr> 
+		<td> <input type="text" id='40'> </td>
+		<td> <input type="text" id='41'> </td>
+		<td> <input type="text" id='42'> </td>
+		<td> <input type="text" id='43'> </td>
+		<td> <input type="text" id='44'> </td>
+		<td> <input type="text" id='45'> </td>
+		<td> <input type="text" id='46'> </td>
+		<td> <input type="text" id='47'> </td>
+		<td> <input type="text" id='48'> </td>
+	</tr>
+		<tr> 
+		<td> <input type="text" id='50'> </td>
+		<td> <input type="text" id='51'> </td>
+		<td> <input type="text" id='52'> </td>
+		<td> <input type="text" id='53'> </td>
+		<td> <input type="text" id='54'> </td>
+		<td> <input type="text" id='55'> </td>
+		<td> <input type="text" id='56'> </td>
+		<td> <input type="text" id='57'> </td>
+		<td> <input type="text" id='58'> </td>
+	</tr>
+		<tr> 
+		<td> <input type="text" id='60'> </td>
+		<td> <input type="text" id='61'> </td>
+		<td> <input type="text" id='62'> </td>
+		<td> <input type="text" id='63'> </td>
+		<td> <input type="text" id='64'> </td>
+		<td> <input type="text" id='65'> </td>
+		<td> <input type="text" id='66'> </td>
+		<td> <input type="text" id='67'> </td>
+		<td> <input type="text" id='68'> </td>
+	</tr>
+		<tr> 
+		<td> <input type="text" id='70'> </td>
+		<td> <input type="text" id='71'> </td>
+		<td> <input type="text" id='72'> </td>
+		<td> <input type="text" id='73'> </td>
+		<td> <input type="text" id='74'> </td>
+		<td> <input type="text" id='75'> </td>
+		<td> <input type="text" id='76'> </td>
+		<td> <input type="text" id='77'> </td>
+		<td> <input type="text" id='78'> </td>
+	</tr>
+		<tr> 
+		<td> <input type="text" id='80'> </td>
+		<td> <input type="text" id='81'> </td>
+		<td> <input type="text" id='82'> </td>
+		<td> <input type="text" id='83'> </td>
+		<td> <input type="text" id='84'> </td>
+		<td> <input type="text" id='85'> </td>
+		<td> <input type="text" id='86'> </td>
+		<td> <input type="text" id='87'> </td>
+		<td> <input type="text" id='88'> </td>
+	</tr>
+</table>
+<button type="button" onclick='checkIssues()'>Check Issues </button>
+<button type="button" onclick="fillA()">Fill Array</button>
+<button type="button" onclick='update()'>Update</button>
+<button type="button" onclick='doThis()'>Solve</button>	
+<button type="button" onclick='doThisFaster()'>Solve Faster</button>
+<button type="button" onclick='clear()'>Clear Board</button>
+
+<div id = 'issueLog'>
+</div>
+<style> 
+	input {
+	width: 30px;
+	height: 30px
+}
+table {
+	border: 2px solid black;
+}
+</style>
+</html>
+
