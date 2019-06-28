@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		169B218A22C6B15D000FFA95 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 169B218922C6B15D000FFA95 /* www */; };
 		16B3501C22C5690700A934CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B3501B22C5690700A934CD /* AppDelegate.swift */; };
 		16B3501E22C5690700A934CD /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B3501D22C5690700A934CD /* MainController.swift */; };
 		16B3502322C5690800A934CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16B3502222C5690800A934CD /* Assets.xcassets */; };
-		16B3503922C5C0F500A934CD /* www in Resources */ = {isa = PBXBuildFile; fileRef = 16B3503822C5C0F500A934CD /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		169B218922C6B15D000FFA95 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		16B3501822C5690700A934CD /* Sudoku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sudoku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B3501B22C5690700A934CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16B3501D22C5690700A934CD /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		16B3502222C5690800A934CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16B3502722C5690800A934CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16B3503822C5C0F500A934CD /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,7 @@
 		16B3501A22C5690700A934CD /* Sudoku */ = {
 			isa = PBXGroup;
 			children = (
-				16B3503822C5C0F500A934CD /* www */,
+				169B218922C6B15D000FFA95 /* www */,
 				16B3501B22C5690700A934CD /* AppDelegate.swift */,
 				16B3501D22C5690700A934CD /* MainController.swift */,
 				16B3502222C5690800A934CD /* Assets.xcassets */,
@@ -119,7 +119,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16B3503922C5C0F500A934CD /* www in Resources */,
+				169B218A22C6B15D000FFA95 /* www in Resources */,
 				16B3502322C5690800A934CD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,14 +20,14 @@ class MainController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let web = WKWebView(frame: self.view.frame)
-        web.loadHTMLString("<html><body>hello</body></html>", baseURL: nil)
+
         let resources = Bundle.main.resourceURL?.appendingPathComponent("www", isDirectory: true)
         let index = (resources?.appendingPathComponent("sudokusolver.html"))!
+
+        let web = WKWebView(frame: self.view.frame)
+        web.autoresizingMask = UIView.AutoresizingMask.flexibleWidth.union( UIView.AutoresizingMask.flexibleHeight);
+        web.scrollView.bounces = false
         web.loadFileURL(index, allowingReadAccessTo: resources!)
         self.view.addSubview(web)
     }
-
-
 }
-
