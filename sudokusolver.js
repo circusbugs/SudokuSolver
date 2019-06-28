@@ -1,44 +1,4 @@
 var rows = []
-// rows[0] = [1,1,1,1,1,1,1,1,1]
-// rows[1] = [2,2,2,2,2,2,2,2,2]
-// rows[2] = [3,3,3,3,3,3,3,3,3]
-// rows[3] = [4,4,4,4,4,4,4,4,4]
-// rows[4] = [5,5,5,5,5,5,5,5,5]
-// rows[5] = [6,6,6,6,6,6,6,6,6]
-// rows[6] = [7,7,7,7,7,7,7,7,7]
-// rows[7] = [8,8,8,8,8,8,8,8,8]
-// rows[8] = [9,9,9,9,9,9,9,9,9]
-
-// rows[0] = [1,2,3,4,5,6,7,8,9]
-// rows[1] = [1,2,3,4,5,6,7,8,9]
-// rows[2] = [1,2,3,4,5,6,7,8,9]
-// rows[3] = [1,2,3,4,5,6,7,8,9]
-// rows[4] = [1,2,3,4,5,6,7,8,9]
-// rows[5] = [1,2,3,4,5,6,7,8,9]
-// rows[6] = [1,2,3,4,5,6,7,8,9]
-// rows[7] = [1,2,3,4,5,6,7,8,9]
-// rows[8] = [1,2,3,4,5,6,7,8,9]
-
-// rows[0] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-// rows[1] = [7, 8, 9, 1, 2, 3, 4, 5, 6]
-// rows[2] = [4, 5, 6, 7, 8, 9, 1, 2, 3]
-// rows[3] = [3, 1, 2, 8, 4, 5, 9, 6, 7]
-// rows[4] = [6, 9, 7, 3, 1, 2, 8, 4, 5]
-// rows[5] = [8, 4, 5, 6, 9, 7, 3, 1, 2]
-// rows[6] = [2, 3, 1, 5, 7, 4, 6, 9, 8]
-// rows[7] = [9, 6, 8, 2, 3, 1, 5, 7, 4]
-// rows[8] = [5, 7, 4, 9, 6, 8, 2, 3, 1]
-
-// solveable stage 1
-// rows[0] = [null, null, null, null, 8, null, null, 1, 7]
-// rows[1] = [4, 8, 3, null, null, null, null, null, 9]
-// rows[2] = [9, 1, null, null, 6, 3, null, 8, null]
-// rows[3] = [8, null, 5, 3, null, null, null, 7, null]
-// rows[4] = [null, 2, 9, null, null, 1, null, null, 4]
-// rows[5] = [null, null, 1, null, 4, null, 2, null, null]
-// rows[6] = [null, 7, 6, 4, null, 5, null, null, null]
-// rows[7] = [1, null, null, 6, null, null, null, 4, 5]
-// rows[8] = [null, null, null, 1, null, null, null, 9, 3]
 
 // unsolveable stage 1
 rows[0] = [null, 3, null, null, 7, 5, 4, null, null]
@@ -51,21 +11,11 @@ rows[6] = [null, 6, null, null, null, 1, null, 2, null]
 rows[7] = [9, null, null, 5, null, null, null, null, null]
 rows[8] = [null, null, 2, 6, 8, null, null, 4, null]
 
-// rows[0] = [1,2,3,4,5,6,7,8,9]
-// rows[1] = [2,3,4,5,6,7,8,9,1]
-// rows[2] = [3,4,5,6,7,8,9,1,2]
-// rows[3] = [4,5,6,7,8,9,1,2,3]
-// rows[4] = [5,6,7,8,9,1,2,3,4]
-// rows[5] = [6,7,8,9,1,2,3,4,5]
-// rows[6] = [7,8,9,1,2,3,4,5,6]
-// rows[7] = [8,9,1,2,3,4,5,6,7]
-// rows[8] = [9,1,2,3,4,5,6,7,8]
-
-function doThis () {
-  solve(rows)
-}
 function doThisFaster () {
-  solveFaster()
+  var arr = deepClone(rows)
+  let { solved, grid } = solveFaster(arr)
+  console.log(`doThisFaster = ${solved}`);
+  fillWithArray(grid)
 }
 
 function fillA () {
@@ -85,14 +35,6 @@ function checkIssues () {
 else return false
 }
 
-function clear () {
-  for (var i = 0; i < rows.length; i++) {
-    var row = rows[i]
-    for (var j = 0; j < row.length; j++) {
-      row[j] = null
-    }
-  }
-}
 
 function fillWithArray (arr) {
   for (var i = 0; i < arr.length; i++) {
@@ -119,89 +61,20 @@ function update () {
   }
 }
 
-function setArray () {
-  var array = []
-  for (var i = 0; i < rows.length; i++) {
-    array[i] = []
-    var row = rows[i]
-    var arr = array[i]
+function deepClone(toClone) {
+  var cloned = []
+  for (var i = 0; i < toClone.length; i++) {
+    cloned[i] = []
+    var row = toClone[i]
+    var arr = cloned[i]
     for (var j = 0; j < row.length; j++) {
       var num = row[j]
       arr[j] = num
     }
   }
-  return array
+  return cloned
 }
 
-function solve () {
-  var testArr = setArray()
-  var start = 0
-  for (var i = 0; i < testArr.length; i++) {
-    var row = testArr[i]
-    // var tries = 0
-    for (var j = start; j < row.length; j++) {
-      // tries = 1
-      if (row[j] === null) {
-        var horizontal = getHorizontalChoices(row)
-        var vertical = getVerticalChoices(testArr, j)
-        var tri = getTriChoices(testArr, i, j)
-        var shortest = getShortest(horizontal, vertical, tri)
-        var available = getAllAvailable(horizontal, vertical, tri, shortest)
-        if (available.length > 0) {
-          if (available.length = 1) {
-            row[j] = available[0]
-          } else { row[j] = available[random(0, available.length)] }
-          // fillWithArray(testArr)
-        } else {
-          // start = j - 1 - tries
-          i = -1
-
-          //  testArr = setPartialArray(testArr, i, )
-          testArr = setArray()
-          // fillWithArray(testArr)
-          //  var newCopy = copy.slice(0)
-          // testArr = newCopy.slice(0)
-          // checkagain = true
-          break
-        }
-      }
-    }
-  }
-  rows = testArr.slice(0)
-  fillWithArray(rows)
-}
-
-function setPartialArray (arr, r, c) {
-  for (var i = r; i < rows.length; i++) {
-    var row = rows[i]
-    for (var j = c; j < row.length - c; j++) {
-      arr[i][j] = row[j]
-    }
-  }
-  return arr
-}
-
-// function populateChoices (arr) {
-//   var choiceArr = []
-//   for (var i = 0; i < arr.length; i++) {
-//     var row = arr[i]
-//     choiceArr[i] = []
-//     for (var j = 0; j < row.length; j++) {
-//       if (arr[i][j] == null) {
-//         choiceArr[i][j] = []
-//         var h = getHorizontalChoices(row)
-//         var v = getVerticalChoices(arr, j)
-//         var t = getTriChoices(arr, i, j)
-//         var shortest = getShortest(h, v, t)
-//         choiceArr[i][j] = getAllAvailable(h, v, t, shortest)
-//         if (choiceArr[i][j].length == 1) {
-//           return choiceArr
-//         }
-//       } else choiceArr[i][j] = null
-//     }
-//   }
-//   return choiceArr
-// }
 function getChoices (arr) {
   var choiceArr = []
   for (var i = 0; i < arr.length; i++) {
@@ -221,46 +94,9 @@ function getChoices (arr) {
   return choiceArr
 }
 
-function solveFaster () {
-  var arr = setArray()
-  var tryit = true
+function solveFaster (arr) {
+  
   var choiceArr = getChoices(arr)
-  // var choiceArr = []
-  // for (var i = 0; i < arr.length; i++) {
-  //   var row = arr[i]
-  //   choiceArr[i] = []
-  //   for (var j = 0; j < row.length; j++) {
-  //     if (arr[i][j] == null) {
-  //       choiceArr[i][j] = []
-  //       var h = getHorizontalChoices(row)
-  //       var v = getVerticalChoices(arr, j)
-  //       var t = getTriChoices(arr, i, j)
-  //       var shortest = getShortest(h, v, t)
-  //       choiceArr[i][j] = getAllAvailable(h, v, t, shortest)
-
-  //     //   if (choiceArr[i][j].length == 1) {
-  //     //     arr[i][j] = choiceArr[i][j][0]
-  //     //     i = -1
-  //     //     break
-  //     //   }
-  //     // } else {
-  //     //   choiceArr[i][j] = null
-  //     // }
-  //   }
-  // }
-
-// for (var i = 0; i < choiceArr.length; i++) {
-//    for (var j = 0; j < choiceArr[i].length; j++) {
-//       if(choiceArr[i][j] != null && choiceArr[i][j].length == 1) {
-//         arr[i][j] = choiceArr[i][j][0]
-//         choiceArr = getChoices(arr)
-//         i = -1
-//         break
-//       }
-//     }
-//  }
-
-while(!isFilled(arr)){
   for (var i = 0; i < 9; i++) {
     var check1 = false
     var countH = [0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -299,7 +135,7 @@ while(!isFilled(arr)){
         if (countH.indexOf(1) > -1) {
           var num = countH.indexOf(1) + 1
           var cell = cellH[countH.indexOf(1)]
-          var x = cell[0]
+          var x = cell[0] 
           var y = cell[1]
           arr[x][y] = num
           choiceArr = getChoices(arr)
@@ -316,21 +152,51 @@ while(!isFilled(arr)){
         }
       }
     }
-    for(var i = 0; i < 9; i++) {
-      for(var j = 0; j < 9; j++) {
-        if(choiceArr[i][j] != null && choiceArr[i][j].length > 0 && arr[i][j] == null) {
-          arr[random(0, choiceArr[i][j].length)]
-        }
+
+    return bruteForce(arr);
+}
+
+function findUnfilled(arr) {
+  let unfilled = null;
+  for(var i = 0; i < 9; i++) {
+    for(var j = 0; j < 9; j++) {
+      if (arr[i][j] == null) {
+        unfilled = [i, j];
+        break;
       }
     }
   }
-  // if(!isFilled(arr)) {
+  return unfilled;
+}
 
-  // }
-  // if(isFilled(arr)){
-    rows = arr.slice(0)
-    fillWithArray(rows)
-  //}
+function bruteForce(arr) {
+  // Find the first unfilled spot
+  let unfilled = findUnfilled(arr);
+
+  // We filled in everything using the above techniques
+  if (unfilled == null) {
+    return { solved: true, grid: arr };
+  }
+
+  let choiceArr = getChoices(arr);
+  let [i, j] = unfilled;
+
+  // Error if we don't have choices for an unfilled spot
+  if(choiceArr[i][j] == null || choiceArr[i][j].length <= 1) {
+    return { solved: false, grid: arr };
+  }
+
+  // Brute force the remaining possibilities
+  for (var k = 0; k < choiceArr[i][j].length; k++) {
+    var choice = choiceArr[i][j][k];
+    var temparr = deepClone(arr)
+    temparr[i][j] = choice
+    let { solved, grid } = solveFaster(temparr);
+    if (solved) {
+      return { solved: true, grid: grid };
+    }
+  }
+  return { solved: false, grid: arr };
 }
 
 function isFilled(arr) {
@@ -340,8 +206,8 @@ function isFilled(arr) {
         return false
     }
   }
-  if(!checkIssues())
-    return false
+  // if(!checkIssues())
+  //   return false
   return true;
 }
 
@@ -565,6 +431,12 @@ function checkHorizontal () {
   }
   return check
 }
+
+/*
+    Check each "tri" to find if there are any issues, such as blank spaces or 
+
+*/
+
 
 function checkTri () {
   var checktrue = true
